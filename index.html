@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gol de Palpite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background-color: #121212;
       color: #f1f1f1;
       margin: 0;
@@ -16,11 +18,16 @@
     header {
       background-color: #1f1f1f;
       padding: 30px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
     header h1 {
       color: #00ff88;
-      font-size: 2.5em;
+      font-size: 2.8em;
       margin: 0;
+    }
+    header p {
+      font-size: 1.1em;
+      color: #ccc;
     }
     nav {
       margin: 20px 0;
@@ -30,6 +37,10 @@
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffffff;
     }
     section {
       padding: 40px 20px;
@@ -43,12 +54,19 @@
       border-radius: 6px;
       cursor: pointer;
       text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #00cc6e;
     }
     footer {
       background-color: #1f1f1f;
       padding: 20px;
       font-size: 0.9em;
       color: #888;
+    }
+    .palpite-item {
+      margin: 10px 0;
     }
   </style>
 </head>
@@ -67,9 +85,7 @@
 
   <section id="palpites">
     <h2>Palpites do Dia ⚽</h2>
-    <p><strong>Boca Junior x Fluminense</strong> – Palpite: Vitória do Fluminense</p>
-    <p><strong>Corinthians x Vasco</strong> – Palpite: Vitória do Corinthians</p>
-    <p><strong>Grêmio x Bahia</strong> – Palpite: Ambas marcam</p>
+    <div id="palpites-list"></div>
   </section>
 
   <section id="grupo">
@@ -88,5 +104,34 @@
     &copy; 2025 Gol de Palpite. Todos os direitos reservados.
   </footer>
 
+  <script>
+    const jogos = [
+      { time1: "Boca Juniors", time2: "River Plate", palpite: "Mais de 2.5 gols" },
+      { time1: "Palmeiras", time2: "São Paulo", palpite: "Ambas marcam" },
+      { time1: "Corinthians", time2: "Vasco", palpite: "Vitória do Corinthians" },
+      { time1: "Flamengo", time2: "Atlético-MG", palpite: "Vitória do Flamengo" },
+      { time1: "Grêmio", time2: "Bahia", palpite: "Empate" },
+      { time1: "Cruzeiro", time2: "América-MG", palpite: "Mais de 1.5 gols" },
+      { time1: "Santos", time2: "Internacional", palpite: "Vitória do Internacional" }
+    ];
+
+    const lista = document.getElementById("palpites-list");
+    let usados = [];
+
+    for (let i = 0; i < 3; i++) {
+      let index;
+      do {
+        index = Math.floor(Math.random() * jogos.length);
+      } while (usados.includes(index));
+
+      usados.push(index);
+      const jogo = jogos[index];
+
+      const div = document.createElement("div");
+      div.className = "palpite-item";
+      div.innerHTML = `<strong>${jogo.time1} x ${jogo.time2}</strong> – Palpite: ${jogo.palpite}`;
+      lista.appendChild(div);
+    }
+  </script>
 </body>
 </html>
