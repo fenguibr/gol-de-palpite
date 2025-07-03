@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gol de Palpite</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Montserrat", sans-serif;
       background-color: #121212;
       color: #f1f1f1;
       margin: 0;
@@ -18,7 +21,7 @@
     header {
       background-color: #1f1f1f;
       padding: 30px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     }
     header h1 {
       color: #00ff88;
@@ -68,10 +71,31 @@
     .palpite-item {
       margin: 10px 0;
     }
+    #admin {
+      background-color: #1a1a1a;
+      padding: 30px;
+      border-top: 2px solid #00ff88;
+    }
+    #admin input {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      border: none;
+      width: 200px;
+    }
+    #admin button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #00ff88;
+      color: #121212;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Gol de Palpite</h1>
     <p>Os melhores palpites do futebol, todo dia!</p>
@@ -81,6 +105,7 @@
     <a href="#palpites">Palpites</a>
     <a href="#sobre">Sobre</a>
     <a href="#grupo">Grupo VIP</a>
+    <a href="#admin">Painel Admin</a>
   </nav>
 
   <section id="palpites">
@@ -91,47 +116,18 @@
   <section id="grupo">
     <h2>Entre no nosso Grupo VIP</h2>
     <p>Receba palpites diários, dicas e promoções direto no seu WhatsApp ou Telegram.</p>
-    <a class="btn" href="https://t.me/seu_grupo_aqui" target="_blank">Entrar Agora</a>
+    <a
+      class="btn"
+      href="https://t.me/seu_grupo_aqui"
+      target="_blank"
+      >Entrar Agora</a
+    >
   </section>
 
   <section id="sobre">
     <h2>Sobre o Gol de Palpite</h2>
-    <p>Somos apaixonados por futebol e apostas esportivas. Aqui você encontra palpites de qualidade, com responsabilidade.</p>
-    <p><em>(Este site é informativo e não realiza apostas)</em></p>
-  </section>
-
-  <footer>
-    &copy; 2025 Gol de Palpite. Todos os direitos reservados.
-  </footer>
-
-  <script>
-    const jogos = [
-      { time1: "Boca Juniors", time2: "River Plate", palpite: "Mais de 2.5 gols" },
-      { time1: "Palmeiras", time2: "São Paulo", palpite: "Ambas marcam" },
-      { time1: "Corinthians", time2: "Vasco", palpite: "Vitória do Corinthians" },
-      { time1: "Flamengo", time2: "Atlético-MG", palpite: "Vitória do Flamengo" },
-      { time1: "Grêmio", time2: "Bahia", palpite: "Empate" },
-      { time1: "Cruzeiro", time2: "América-MG", palpite: "Mais de 1.5 gols" },
-      { time1: "Santos", time2: "Internacional", palpite: "Vitória do Internacional" }
-    ];
-
-    const lista = document.getElementById("palpites-list");
-    let usados = [];
-
-    for (let i = 0; i < 3; i++) {
-      let index;
-      do {
-        index = Math.floor(Math.random() * jogos.length);
-      } while (usados.includes(index));
-
-      usados.push(index);
-      const jogo = jogos[index];
-
-      const div = document.createElement("div");
-      div.className = "palpite-item";
-      div.innerHTML = `<strong>${jogo.time1} x ${jogo.time2}</strong> – Palpite: ${jogo.palpite}`;
-      lista.appendChild(div);
-    }
-  </script>
-</body>
-</html>
+    <p>
+      Somos apaixonados por futebol e apostas esportivas. Aqui você encontra
+      palpites de qualidade, com responsabilidade.
+    </p>
+    <p><em>(Este site é informativo e não realiza apostas)</em><
